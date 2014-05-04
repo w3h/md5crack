@@ -1,8 +1,16 @@
 md5crack
 ========
 Support online crack md5, and support for plug-in development mode, 
-the plug has been templated directly using the template file “/ plugin / template.py”, 
+the plug has been templated directly using the template file 'plugin / template.py'
 you can quickly add new sites to crack md5
+
+Provides the following functions 
+1, support the development of plug-in to facilitate increased late and delete
+2, plug-templated facilitate development
+3, support for multi-threaded and single-threaded crack
+4, plug-in template matching algorithm does not use regular and BeautifulSoup, but the character of the scan so that the site will be higher compatibility, plug-in development process does not need to be concerned about the regular matching problem, simply grasp that Web content can be
+5, support for Google search on MD5 value
+ (Note: Thanks QQ: 374331370 brothers xmd5 account, do not want to apply for this site account, so the direct use)
 
 
 [-]Currently supports the following plug-ins
