@@ -51,6 +51,7 @@ def say(string):
 
 
 def dict_attack(ha, words):
+    if not words: return ''
     import re,hashlib,chardet
     enc = chardet.detect(words)['encoding']
     words = words.decode(enc).encode('utf-8')
