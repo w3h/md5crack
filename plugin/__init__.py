@@ -15,6 +15,5 @@ __all__ = ['blackbap',
 'noisette', 
 'plugin2d5', 
 'requnix', 
-'template', 
 'xmd5', 
 ]

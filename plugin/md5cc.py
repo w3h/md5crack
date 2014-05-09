@@ -11,11 +11,12 @@ res = [url, '']
 
 def getAnswer(md5): 
     # [B] The code needs to change 
+    rq = pycurl.Curl()
+    b = StringIO.StringIO()    
     ansResponse = ''
     url_GET = "http://www.md5.cc/ShowMD5Info.asp?md5_str=" + str(md5)
 
     try:
-        
         rq = pycurl.Curl()
         b = StringIO.StringIO()
         rq.setopt(pycurl.FOLLOWLOCATION, 1)
@@ -27,10 +28,16 @@ def getAnswer(md5):
         rq.setopt(pycurl.URL, url_GET)
         rq.setopt(pycurl.WRITEFUNCTION, b.write)
         rq.perform()
-        ansResponse = b.getvalue()
+        
+        retcode = rq.getinfo(pycurl.HTTP_CODE)
+        if retcode == 200:        
+            ansResponse = b.getvalue()
     except Exception,e:
         print "[*] %s" % e
         pass
+    finally:
+        rq.close()
+        b.close()
 
     return ansResponse
     # [E] The code needs to change 

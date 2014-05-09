@@ -13,7 +13,7 @@ initmodstr = r'__all__ = ['
 for py in glob.glob(r'./plugin/*.py'):
     py = py.replace('./plugin\\', '')
     py = py.replace('.py', '')
-    if py != '__init__' and py != 'BeautifulSoup':
+    if py != '__init__' and py != 'BeautifulSoup' and py != 'template':
         initmodstr += '\'%s\', \n' % py
 
 initmodstr = initmodstr + r']' 

@@ -5,12 +5,16 @@ res = [url, '']
 
 def run(string, *para): 
     say = para[0]
+    dict_attack = para[1]
     try:
         br = mechanize.Browser()
         br.open("http://www.cmd5.com/")
         br.select_form(name="aspnetForm")
         br["ctl00$ContentPlaceHolder1$TextBoxInput"] = string
         response = br.submit()
+        info = ''.join(response.read())
+        res[1] = dict_attack(string, info)
+        '''
         for line in response.readlines():
             if 'ctl00_ContentPlaceHolder1_LabelAnswer' in line:
                 line = line.replace('<span id="ctl00_ContentPlaceHolder1_LabelAnswer">', '')
@@ -22,6 +26,7 @@ def run(string, *para):
                     break
 
                 res[1] = result
+         '''
     except:
         pass
 
